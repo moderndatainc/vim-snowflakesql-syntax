@@ -28,13 +28,6 @@ syn keyword sqlKeyword	public resource return row rowlabel rownum rows
 syn keyword sqlKeyword	session share size smallint type using
 syn keyword sqlKeyword	join cross inner outer left right
 
-syn keyword sqlOperator	not and or
-syn keyword sqlOperator	in any some all between exists
-syn keyword sqlOperator	like escape
-syn keyword sqlOperator	union intersect minus
-syn keyword sqlOperator	prior distinct
-syn keyword sqlOperator	sysdate out
-
 syn keyword sqlStatement analyze audit comment commit
 syn keyword sqlStatement delete drop execute explain grant lock noaudit
 syn keyword sqlStatement rename revoke rollback savepoint set
@@ -70,18 +63,6 @@ syn sync ccomment sqlComment
 " Todo:
 syn keyword sqlTodo TODO FIXME XXX DEBUG NOTE contained
 
-" Define the default highlighting.
-hi def link Quote		Special
-hi def link sqlComment		Comment
-hi def link sqlFunction		Function
-hi def link sqlKeyword		sqlSpecial
-hi def link sqlNumber		Number
-hi def link sqlOperator		sqlStatement
-hi def link sqlSpecial		Special
-hi def link sqlStatement	Statement
-hi def link sqlString		String
-hi def link sqlType		Type
-hi def link sqlTodo		Todo
 
 " Above: Standard SQL syntax that may need to be removed as it is discovered to
 " conflict or not be valid
@@ -218,6 +199,25 @@ syn keyword sqlType	variant object array
 
 " Geospatial:
 syn keyword sqlType	geography
+
+syn keyword sqlOperator	not and or
+syn keyword sqlOperator	in any some all between exists
+syn keyword sqlOperator	like escape
+syn keyword sqlOperator	union intersect minus
+syn keyword sqlOperator	prior distinct
+
+" Define the default highlighting.
+hi def link Quote		Special
+hi def link sqlComment		Comment
+hi def link sqlFunction		Function
+hi def link sqlKeyword		sqlSpecial
+hi def link sqlNumber		Number
+hi def link sqlOperator		sqlStatement
+hi def link sqlSpecial		Special
+hi def link sqlStatement	Statement
+hi def link sqlString		String
+hi def link sqlType		Type
+hi def link sqlTodo		Todo
 
 let b:current_syntax = "sql"
 " vim: ts=8
