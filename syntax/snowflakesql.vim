@@ -42,11 +42,6 @@ syn keyword sqlStatement truncate
 " next ones are contained, so folding works.
 syn keyword sqlStatement create update alter select insert contained
 
-syn keyword sqlType	bfile blob boolean char character clob date datetime
-syn keyword sqlType	dec decimal float int integer long mlslabel nchar
-syn keyword sqlType	nclob number numeric nvarchar2 precision raw rowid
-syn keyword sqlType	smallint real timestamp urowid varchar varchar2 varray
-
 " Strings:
 syn region sqlString	matchgroup=Quote start=+n\?"+     end=+"+
 syn region sqlString	matchgroup=Quote start=+n\?'+     end=+'+
@@ -198,7 +193,31 @@ syn keyword sqlFunction	quarter zeroifnull zipf
 
 
 " Types:
-syn keyword sqlType	string number
+" Numeric:
+syn keyword sqlType	number decimal numeric 
+syn keyword sqlType	int integer bigint smallint tinyint
+syn keyword sqlType	byteint float float4 float8
+syn keyword sqlType	real
+" double precision first, so that the match doesn't get double on its own and
+" leave precision unhighlighted
+syn match sqlType	/double precision\|double/ 
+
+" String and Binary:
+syn keyword sqlType	varchar char character string text
+syn keyword sqlType	binary varbinary
+
+" Logical:
+syn keyword sqlType	boolean
+
+" Date and Time:
+syn keyword sqlType	date datetime
+syn keyword sqlType	time timestamp timestamp_ltz timestamp_ntz timestamp_tz
+
+" Semi-structured:
+syn keyword sqlType	variant object array
+
+" Geospatial:
+syn keyword sqlType	geography
 
 let b:current_syntax = "sql"
 " vim: ts=8
