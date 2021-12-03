@@ -10,30 +10,6 @@ endif
 
 syn case ignore
 
-" The SQL reserved words, defined as keywords.
-
-syn keyword sqlSpecial	false null true
-
-syn keyword sqlKeyword	access add as asc begin by case check cluster column
-syn keyword sqlKeyword	cache compress connect current cursor decimal default desc
-syn keyword sqlKeyword	else elsif end exception exclusive file for from
-syn keyword sqlKeyword	function group having identified if immediate increment
-syn keyword sqlKeyword	index initial initrans into is level link logging loop
-syn keyword sqlKeyword	maxextents maxtrans mode modify monitoring
-syn keyword sqlKeyword	nocache nocompress nologging noparallel nowait of offline on online start
-syn keyword sqlKeyword	parallel successful synonym table tablespace then to trigger uid
-syn keyword sqlKeyword	unique user validate values view when whenever
-syn keyword sqlKeyword	where with option order pctfree pctused privileges procedure
-syn keyword sqlKeyword	public resource return row rowlabel rownum rows
-syn keyword sqlKeyword	session share size smallint type using
-syn keyword sqlKeyword	join cross inner outer left right
-
-syn keyword sqlStatement analyze audit comment commit
-syn keyword sqlStatement delete drop execute explain grant lock noaudit
-syn keyword sqlStatement rename revoke rollback savepoint set
-syn keyword sqlStatement truncate
-" next ones are contained, so folding works.
-syn keyword sqlStatement create update alter select insert contained
 
 " Strings:
 syn region sqlString	matchgroup=Quote start=+n\?"+     end=+"+
@@ -106,12 +82,12 @@ syn keyword sqlFunction	get_ignore_case get_object_references get_path get_presi
 syn keyword sqlFunction	get_relative_path get_stage_location getbit greatest grouping grouping_id hash
 syn keyword sqlFunction	hash_agg haversine hex_decode_binary hex_decode_string hex_encode hll
 syn keyword sqlFunction	hll_accumulate hll_combine hll_estimate hll_export hll_import iff ifnull ilike
-syn keyword sqlFunction	ilike any in infer_schema initcap insert invoker_role invoker_share
+syn keyword sqlFunction	in infer_schema initcap insert invoker_role invoker_share
 syn keyword sqlFunction	is_array is_binary is_boolean is_decimal is_granted_to_invoker_role is_integer
 syn keyword sqlFunction	is_null_value is_object is_role_in_session is_time is_timestamp_ltz
 syn keyword sqlFunction	is_timestamp_ntz is_timestamp_tz json_extract_path_text kurtosis lag last_day
-syn keyword sqlFunction	last_query_id last_transaction last_value lead least left length len like like
-syn keyword sqlFunction	all like any listagg ln localtime localtimestamp log login_history
+syn keyword sqlFunction	last_query_id last_transaction last_value lead least left length len like
+syn keyword sqlFunction	listagg ln localtime localtimestamp log login_history
 syn keyword sqlFunction	login_history_by_user lower lpad ltrim materialized_view_refresh_history md5
 syn keyword sqlFunction	md5_hex md5_binary md5_number — oBSOLETED md5_number_lower64 md5_number_upper64
 syn keyword sqlFunction	median min / max minhash minhash_combine mod mode monthname months_between
@@ -205,6 +181,38 @@ syn keyword sqlOperator	in any some all between exists
 syn keyword sqlOperator	like escape
 syn keyword sqlOperator	union intersect minus
 syn keyword sqlOperator	prior distinct
+
+" The SQL reserved words, defined as keywords.
+
+syn keyword sqlSpecial	false null true
+
+syn keyword sqlKeyword	account as
+syn keyword sqlKeyword	by
+syn keyword sqlKeyword	check column connect connection constraint cross current
+syn keyword sqlKeyword	database
+syn keyword sqlKeyword	else
+syn keyword sqlKeyword	following for from full
+syn keyword sqlKeyword	group gscluster
+syn keyword sqlKeyword	having
+syn keyword sqlKeyword	ilike in increment inner insert intersect into is issue
+syn keyword sqlKeyword	join
+syn keyword sqlKeyword	lateral left
+syn keyword sqlKeyword	natural
+syn keyword sqlKeyword	of on order organization
+syn keyword sqlKeyword	qualify
+syn keyword sqlKeyword	row rows
+syn keyword sqlKeyword	sample schema start
+syn keyword sqlKeyword	table tablesample then to trigger
+syn keyword sqlKeyword	unique using
+syn keyword sqlKeyword	values view
+syn keyword sqlKeyword	when whenever where with
+
+syn keyword sqlStatement analyze audit comment commit
+syn keyword sqlStatement delete drop execute explain grant lock noaudit
+syn keyword sqlStatement rename revoke rollback savepoint set
+syn keyword sqlStatement truncate
+" next ones are contained, so folding works.
+syn keyword sqlStatement create update alter select insert contained
 
 " Define the default highlighting.
 hi def link Quote		Special
